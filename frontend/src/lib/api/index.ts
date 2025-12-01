@@ -15,6 +15,10 @@ export { default as FriendsAPI } from './friends';
 export { default as organizerAgentAPI } from './agents/organizerAgent';
 export * as OrganizerAgent from './agents/organizerAgent';
 
+// Analytics API
+export { default as analyticsAPI } from './analytics';
+export * as AnalyticsService from './analytics';
+
 // Re-export types for convenience
 export type {
   // Task types from lib/types
@@ -68,3 +72,18 @@ export type {
   ProviderTestResult,
   HealthCheckResponse,
 } from './agents/organizerAgent';
+
+// Re-export Analytics types
+export type {
+  TimePeriod,
+  ProgressDataPoint,
+  ProgressResponse,
+  DayOfWeekStat,
+  HourlyStat,
+  PriorityBreakdown,
+  ProductivityResponse as AnalyticsProductivityResponse,
+  LeaderboardUser,
+  LeaderboardResponse,
+  Achievement,
+  AchievementsResponse,
+} from './analytics';

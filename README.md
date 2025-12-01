@@ -12,9 +12,108 @@ LVL.AI is a full-stack productivity platform that transforms task management int
 - **🤖 AI-Powered Insights**: Smart task suggestions and productivity analysis using DeepSeek AI
 - **👥 Social Features**: Friend connections, shared achievements, and collaborative challenges
 - **📊 Advanced Analytics**: Comprehensive progress tracking and productivity metrics
+- **📈 Analytics Dashboard**: NEW - Visual progress trends, leaderboards, and achievement tracking
 - **🏨 Hotel Management**: Complete hotel operations dashboard with booking and billing systems
 - **🔐 Secure Authentication**: JWT-based authentication with email verification
 - **📱 Responsive Design**: Modern UI built with Tailwind CSS and Radix UI components
+
+---
+
+## 🆕 New Feature: Analytics Dashboard with Progress Trends
+
+> **Added by: Yash Garg - Assignment Extension**
+
+### Feature Overview
+
+This extension adds a comprehensive **Analytics Dashboard** that provides users with detailed insights into their productivity patterns, progress trends, and gamification achievements. The dashboard includes:
+
+#### 1. Progress Tracking
+- **XP Over Time**: Line chart showing XP earned daily/weekly/monthly
+- **Tasks Completed**: Visual representation of task completion trends
+- **Period Summaries**: Total tasks, XP earned, and daily averages for selected periods (week/month/year)
+
+#### 2. Streak Statistics
+- **Current Streak**: Consecutive days with completed tasks
+- **Longest Streak**: Personal best streak record
+- **Visual motivation** with animated streak counters
+
+#### 3. Productivity Insights
+- **Best Day Analysis**: Identifies which day of the week user is most productive
+- **Peak Hours**: When the user typically completes tasks
+- **Priority Breakdown**: Pie chart showing task completion by priority level
+
+#### 4. Leaderboard
+- **Friend Rankings**: Compare XP and levels with connected friends
+- **Current Rank Display**: Shows user's position among friends
+- **Medal System**: Gold/Silver/Bronze highlights for top 3 positions
+
+#### 5. Achievement System
+- **8 Unlockable Achievements**: From "First Steps" to "XP Legend"
+- **Progress Bars**: Visual tracking toward each achievement
+- **Milestone Tracking**: Level-based and XP-based achievements
+
+### Files Modified/Created
+
+#### Backend
+| File | Description |
+|------|-------------|
+| `backend/src/routes/analyticsRoutes.ts` | NEW - Analytics API endpoints |
+| `backend/src/routes/api.ts` | Updated - Added analytics routes |
+
+#### Frontend
+| File | Description |
+|------|-------------|
+| `frontend/src/app/analytics/page.tsx` | NEW - Analytics Dashboard page |
+| `frontend/src/app/friends/page.tsx` | NEW - Friends page |
+| `frontend/src/app/settings/page.tsx` | NEW - Settings page |
+| `frontend/src/lib/api/analytics.ts` | NEW - Analytics API client |
+| `frontend/src/lib/api/index.ts` | Updated - Export analytics API |
+
+### New API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/analytics/progress?period=week` | Get progress trends (week/month/year) |
+| GET | `/api/analytics/productivity` | Get productivity insights |
+| GET | `/api/analytics/leaderboard` | Get friend leaderboard |
+| GET | `/api/analytics/achievements` | Get user achievements |
+
+### How to Verify
+
+1. **Start the application** (see Quick Start below)
+2. **Login/Register** a user account
+3. **Navigate to Analytics** using the sidebar (Chart icon)
+4. **Create and complete tasks** to see real data populate
+5. **Add friends** to see the leaderboard populate
+
+### Screenshots
+
+The Analytics Dashboard includes:
+- Line/Bar charts for progress visualization
+- Pie charts for priority breakdown
+- Card-based statistics display
+- Responsive design for all screen sizes
+
+### Testing Notes
+
+- The dashboard displays **demo data** when API calls fail (useful for development)
+- Real data populates when backend is connected to MongoDB
+- All charts are interactive with tooltips
+- Period selector (week/month/year) updates all visualizations
+
+### Assumptions & Challenges
+
+**Assumptions:**
+- Users have the existing authentication system working
+- MongoDB is properly configured and running
+- The existing Task and User models are unchanged
+
+**Challenges Faced:**
+1. TypeScript strict mode required careful type handling for API responses
+2. Integrating with existing Recharts setup while maintaining consistent styling
+3. Calculating streaks efficiently from task completion dates
+
+---
 
 ## 🏗️ Architecture
 
